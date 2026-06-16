@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>전체 금고 보기 | 범일금고 영등포대리점</title>
+  <meta name="description" content="범일금고 영등포대리점 전체 금고 목록. 디자인금고·지문인식금고·가정용·사무용 금고를 할인가로 만나보세요." />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/store.css" />
+</head>
+<body>
+  <!-- 스토어 헤더 (범일금고 영등포대리점 브랜드) -->
+  <header class="store-head">
+    <div class="store-head__inner2">
+      <a href="index.html" class="logo">
+        <span class="logo__mark">BUMIL</span>
+        <span class="logo__name">범일금고 <em>영등포대리점</em></span>
+      </a>
+      <div class="store-head__actions">
+        <a data-kakao class="btn btn--kakao btn--sm">카톡 상담</a>
+        <a href="tel:0226326070" class="btn btn--dark btn--sm">전화 상담</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 카테고리 탭 -->
+  <nav class="cattabs">
+    <div class="cattabs__inner">
+      <button class="cattab is-active" data-cat="all">전체상품</button>
+      <button class="cattab" data-cat="best">베스트</button>
+      <button class="cattab" data-cat="smart">디자인금고</button>
+      <button class="cattab" data-cat="finger">지문인식금고</button>
+      <button class="cattab" data-cat="basic">가정·사무용금고</button>
+      <a class="cattab cattab--muted" href="index.html#location">오시는길</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <!-- 제목 + 개수 -->
+    <div class="listhead">
+      <h2 class="listhead__title" id="listTitle">전체상품</h2>
+      <p class="listhead__crumb">홈 &gt; <b id="crumbCat">전체상품</b> (총 <b id="count">0</b>개)</p>
+    </div>
+
+    <!-- 안내 줄 -->
+    <div class="infobar">
+      <span class="infobar__tag">전 상품 무료배송</span>
+      <span>범일금고 본사 정품 · 영등포 직접 설치 · 구매 후 A/S 상담</span>
+    </div>
+
+    <!-- 정렬 -->
+    <div class="sortbar">
+      <button class="sort is-active" data-sort="popular">인기도순</button>
+      <button class="sort" data-sort="new">최신등록순</button>
+      <button class="sort" data-sort="low">낮은 가격순</button>
+      <button class="sort" data-sort="high">높은 가격순</button>
+      <button class="sort" data-sort="discount">할인율순</button>
+      <button class="sort" data-sort="review">리뷰 많은순</button>
+      <button class="sort" data-sort="rating">평점 높은순</button>
+      <div class="sortbar__right">
+        <span>40개씩 보기 ▾</span>
+        <span>▦</span>
+      </div>
+    </div>
+
+    <!-- 제품 그리드 -->
+    <div class="plist" id="plist"></div>
+  </main>
+
+  <!-- 하단 상담 띠 -->
+  <section class="helpcta">
+    <div class="helpcta__inner">
+      <div class="helpcta__text">
+        <h3>어떤 금고가 맞을지 고민되시나요?</h3>
+        <p>설치 환경만 알려주시면 딱 맞는 금고를 추천해 드려요. 부담 없이 문의하세요.</p>
+      </div>
+      <div class="helpcta__btns">
+        <a data-kakao class="btn btn--kakao btn--lg">💬 카카오톡 상담</a>
+        <a href="tel:0226326070" class="btn btn--dark btn--lg">📞 02-2632-6070</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="foot">
+    <div class="foot__inner">
+      <div>
+        <p class="foot__brand">범일금고 <em>영등포대리점</em></p>
+        <p class="foot__line">가정용 · 사무용 금고 전문 판매 · 설치 · A/S</p>
+      </div>
+      <div class="foot__contact">
+        <a href="tel:0226326070">02-2632-6070</a>
+        <span>평일 09:00–18:00 (주말·공휴일 상담 가능)</span>
+      </div>
+    </div>
+    <p class="foot__copy">© 2026 범일금고 영등포대리점. 본 사이트는 샘플 데모이며, 가격·재고는 상담 시 확정됩니다.</p>
+  </footer>
+
+  <!-- 제품 상세 모달 -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true">
+      <button class="modal__close" data-close aria-label="닫기">×</button>
+      <div class="modal__media" id="modalMedia"></div>
+      <div class="modal__body">
+        <div id="modalBest"></div>
+        <h3 class="modal__name" id="modalName"></h3>
+        <div class="modal__price" id="modalPrice"></div>
+        <div class="modal__rating" id="modalRating"></div>
+        <ul class="modal__specs" id="modalSpecs"></ul>
+        <div class="modal__cta">
+          <a href="tel:0226326070" class="btn btn--primary btn--lg">📞 전화 주문</a>
+          <a data-kakao class="btn btn--kakao btn--lg">💬 카톡 상담</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/kakao.js"></script>
+</body>
+</html>
